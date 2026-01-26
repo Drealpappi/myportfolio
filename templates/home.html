@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <img src="{% static 'images/profile11.png' %}" alt="profile11.png" class="profile-img mb-4">
+            
+            <h1 class="fw-light">Hi, I'm <span class="fw-bold text-primary">Festus</span></h1>
+            <p class="lead text-muted">Backend Engineer | Python & Django Specialist</p>
+            <p>
+                <a href="#projects" class="btn btn-primary my-2">View My Projects</a>
+                <a href="#" class="btn btn-outline-secondary my-2">Download CV</a>
+            </p>
+            
+            <div class="mt-4">
+                <span class="badge bg-dark">Python</span>
+                <span class="badge bg-dark">Django</span>
+                <span class="badge bg-dark">PostgreSQL</span>
+                <span class="badge bg-dark">REST APIs</span>
+            </div>
+        </div>
+    </div>
+    <div id="about" class="py-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <h2 class="fw-bold mb-4">About Me</h2>
+                <p class="text-secondary fs-5">I am a dedicated Backend Engineer with a passion for building efficient systems. 
+            Whether it's architecting databases for projects like <strong>PassionPet Blog, Weather App, TO_DO List</strong> 
+                and automating workflows with Python, I thrive on solving complex technical challenges.
+            </p>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="py-5 bg-white rounded shadow-sm">
+        <div class="text-center">
+            <h2 class="fw-bold mb-4">Get In Touch</h2>
+            <p class="mb-4">I'm currently looking for opportunities to contribute my skills in backend development and Python/Django frameworks. Let's connect!</p>
+            
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://github.com/Drealpappi" class="btn btn-dark me-2" target="_blank">GitHub</a>
+                <a href="https://mailto:adelekanf7@gmail.com?subject=Portfolio Inquiry&body=Hi Festus, I saw your portfolio and..." class="btn btn-dark me-2" target="_blank" rel="noopener nofoever">Email Me</a>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="projects">
+        {% for project in projects %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-1">
+                {% if project.image %}
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                {% endif %}
+                
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ project.title }}</h5>
+                    <p class="card-text text-muted">{{ project.description|truncatewords:20 }}</p>
+                    <p><small class="text-primary font-monospace">{{ project.technology }}</small></p>
+                    <a href="{{ project.github_link }}" class="btn btn-dark btn-sm">GitHub Source</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No projects added yet. Check back soon!</p>
+        {% endfor %}
+    </div>
+
+    <form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+    <div class="mb-3">
+        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+    </div>
+    <div class="mb-3">
+        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+    </div>
+    <div class="mb-3">
+        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+    </div>
+    <div class="mb-3">
+        <textarea name="message" class="form-control" rows="4" placeholder="How can I help you?" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+</form>
+
+</section>
+{% endblock %}

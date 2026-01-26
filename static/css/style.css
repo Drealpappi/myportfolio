@@ -1,0 +1,92 @@
+/* style.css */
+
+/* 1. Profile Image responsiveness */
+.profile-img {
+    width: 100%;
+    max-width: 350px; /* Limits size on desktop */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid rgba(13, 110, 253, 0.1);
+}
+
+/* 2. Responsive adjustments for smaller screens */
+@media (max-width: 991.98px) {
+    .display-3 {
+        font-size: 2.5rem; /* Smaller font on phones */
+    }
+    
+    .profile-img {
+        max-width: 220px; /* Smaller image on phones */
+    }
+
+    body {
+        padding-top: 60px; /* Less space for smaller nav */
+    }
+}
+
+/* 3. Smooth scrolling for those Navbar links */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+/* style.css */
+
+/* The Glassmorphism Effect */
+.custom-navbar {
+    background: rgba(255, 255, 255, 0.8) !important; /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* This blurs the content behind the nav */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+/* Classy Typography */
+.navbar-brand {
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+    color: #2d3436 !important;
+}
+
+.nav-link {
+    color: #636e72 !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0d6efd !important; /* Elegant blue highlight */
+}
+/* A special button for the projects link */
+.btn-project{
+    background-color:  #2d3436;
+    color: white !important;
+    border-radius: 25%;
+    padding: 8px 20px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.btn-project:hover{
+    background-color: #000;
+    transform: translateY(-2px);
+}
+/* A special button for the Contact link */
+.btn-contact {
+    background-color: #2d3436;
+    color: white !important;
+    border-radius: 25px;
+    padding: 8px 20px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-contact:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+}
+
+/* Adjust the body so content doesn't hide under the sticky nav */
+body {
+    padding-top: 80px;
+}
