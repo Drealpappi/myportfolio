@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-ag__!p*4i0$n)=w90#7wp4$y=e$qb9)b@2&$eaf_grl1+&i2^b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://www.google.com/search?q=your-app-name.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['myportfolio-1-ifvh.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -80,6 +80,7 @@ WSGI_APPLICATION = 'mywebsite.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
+
         default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,
         conn_health_checks=True,
