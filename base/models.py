@@ -19,6 +19,5 @@ class ContactMessage(models.Model):
     subject = models.CharField(max_length= 200, null=True, blank= True)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now= True)
-
     def __str__(self):
         return f"message.{self.name}-{self.email}"
