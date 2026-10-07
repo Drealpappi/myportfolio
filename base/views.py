@@ -10,7 +10,7 @@ def home(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message_content = request.POST.get('message')
-        subject = request.PPOST.get('subject', 'New Contact Message')
+        subject = request.POST.get('subject', 'New Contact Message')
 
         ContactMessage.objects.create(
             name=name,

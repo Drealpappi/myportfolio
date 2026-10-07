@@ -27,7 +27,7 @@
             <i class="ti ti-layout-grid" aria-hidden="true"></i>
             View Projects
           </a>
-          <a href="#" class="btn-contact">
+          <a href="{% static 'files/Festus_Adelekan_cv.docx' %}" class="btn-contact">
             <i class="ti ti-download" aria-hidden="true"></i>
             Download CV
           </a>
@@ -147,7 +147,7 @@
             <i class="ti ti-code" aria-hidden="true"></i>
           </div>
           {% endif %}
-
+          
           <div class="project-title">{{ project.title }}</div>
           <p class="project-description">{{ project.description|truncatewords:20 }}</p>
 
