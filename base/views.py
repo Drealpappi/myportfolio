@@ -24,7 +24,7 @@ def home(request):
                 subject,
                 f"Message from {name} ({email}):\n\n{message_content}",
                 settings.EMAIL_HOST_USER,
-                ['adelekanf7@gmail.com'], 
+                ['a.festus.solutions@gmail.com'], 
                 fail_silently=False,
             )
 
